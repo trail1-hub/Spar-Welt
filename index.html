@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Spar Welt in Berlin Köpenick, Bahnhofstraße 7 – Haushaltswaren, Schreibwaren, Textilien, Lederwaren und vieles mehr. Ihr Nachbarschaftsladen mit großer Auswahl zu kleinen Preisen."
+    />
+    <title>Spar Welt Berlin Köpenick – Haushaltswaren, Schreibwaren, Textilien & Lederwaren</title>
+
+    <!-- Lokal eingebundene Schriften (offline-fähig) -->
+    <link href="./assets/fonts/fonts.css" rel="stylesheet" />
+    <script>
+      const FB={"haushaltswaren.jpg":"https://images.pexels.com/photos/19599328/pexels-photo-19599328.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200","schreibwaren.jpg":"https://images.pexels.com/photos/9598087/pexels-photo-9598087.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200","textilien.jpg":"https://images.pexels.com/photos/33556526/pexels-photo-33556526.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200","lederwaren.jpg":"https://images.pexels.com/photos/35989688/pexels-photo-35989688.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200","reinigung.jpg":"https://images.pexels.com/photos/6160301/pexels-photo-6160301.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200","mehr.jpg":"https://images.pexels.com/photos/5531015/pexels-photo-5531015.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200","ladenfront.jpg":"https://images.pexels.com/photos/30353313/pexels-photo-30353313.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"};
+      // Bilder: zuerst lokal aus assets/images/, sonst automatisch Ersatzbild (Pexels)
+      window.addEventListener("error", function (e) {
+        var t = e.target;
+        if (!t || t.tagName !== "IMG" || t.dataset.fb) return;
+        var f = FB[(t.getAttribute("src") || "").split("/").pop()];
+        if (f) { t.dataset.fb = "1"; t.src = f; }
+      }, true);
+    </script>
+    <meta name="theme-color" content="#d61f13" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 rx=%2722%27 fill=%27%23d61f13%27/%3E%3Ctext x=%2750%27 y=%2772%27 font-size=%2765%27 font-weight=%27bold%27 text-anchor=%27middle%27 fill=%27white%27 font-family=%27Arial%27%3ES%3C/text%3E%3C/svg%3E" />
+
+    <style>
+      :root {
+        --sign-red: #d61f13;
+        --sign-red-dark: #9d1108;
+        --sign-red-light: #f0503c;
+        --sign-purple: #3a2a8f;
+        --sign-purple-light: #5b45c9;
+        --cream: #fdf7f0;
+        --cream-dark: #f4e7d8;
+        --ink: #2a1f1a;
+      }
+
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body {
+        font-family: "Nunito", system-ui, sans-serif;
+        background: var(--cream);
+        color: var(--ink);
+        line-height: 1.5;
+      }
+      img { display: block; max-width: 100%; }
+      a { color: inherit; text-decoration: none; }
+      ul { list-style: none; }
+
+      .wrap { max-width: 1152px; margin: 0 auto; padding: 0 16px; }
+      .display { font-family: "Baloo 2", "Trebuchet MS", sans-serif; }
+
+      /* ---------- SCHILD ---------- */
+      .wall { height: 14px; background: linear-gradient(#e9cdbd, #dcb7a3); }
+      @media (min-width: 640px) { .wall { height: 20px; } }
+
+      .sign-outer { padding: 8px 8px 0; }
+      @media (min-width: 640px) { .sign-outer { padding: 12px 16px 0; } }
+      .sign-frame {
+        max-width: 1152px; margin: 0 auto; border-radius: 4px;
+        background: rgba(255,255,255,.7); padding: 3px;
+        box-shadow: 0 10px 30px -10px rgba(0,0,0,.55);
+      }
+      .sign-plate {
+        position: relative; overflow: hidden; border-radius: 2px;
+        background:
+          radial-gradient(120% 160% at 30% 0%, #ff6a4d 0%, rgba(255,106,77,0) 55%),
+          radial-gradient(100% 140% at 85% 110%, #8f0d05 0%, rgba(143,13,5,0) 60%),
+          linear-gradient(105deg, #c9190e 0%, #e8331f 38%, #f4604a 52%, #d81f11 70%, #a81208 100%);
+      }
+      .sign-plate::before {
+        content: ""; position: absolute; inset: 0; pointer-events: none;
+        background: linear-gradient(80deg, rgba(255,255,255,.22) 0%, rgba(255,255,255,0) 28%, rgba(255,255,255,.14) 46%, rgba(255,255,255,0) 70%);
+      }
+      .sign-plate::after {
+        content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 1px;
+        background: rgba(255,255,255,.2); pointer-events: none;
+      }
+      .sign-row {
+        position: relative; display: flex; align-items: center;
+        justify-content: space-between; gap: 8px; padding: 12px;
+      }
+      @media (min-width: 640px) { .sign-row { padding: 20px 24px; } }
+      .sign-side {
+        flex-shrink: 0; font-style: italic; font-weight: 700; color: #fff;
+        line-height: 1.15; text-shadow: 0 2px 3px rgba(0,0,0,.35);
+      }
+      .sign-side.left { transform: rotate(-1deg); font-size: clamp(.6rem, 1.9vw, 1.6rem); }
+      .sign-side.right { align-self: flex-end; padding-bottom: 2px; transform: rotate(-3deg); font-size: clamp(.5rem, 1.5vw, 1.25rem); }
+      .sign-word {
+        font-family: "Baloo 2", sans-serif; font-style: italic; font-weight: 800;
+        white-space: nowrap; line-height: 1; color: var(--sign-purple);
+        font-size: clamp(1.9rem, 7.6vw, 6rem);
+        -webkit-text-stroke: .055em #fff; paint-order: stroke fill;
+        text-shadow: 0 .05em .02em rgba(0,0,0,.35), 0 .12em .18em rgba(0,0,0,.25);
+      }
+      .awning {
+        height: 16px; margin-top: 8px; border-top: 1px solid rgba(0,0,0,.1);
+        border-bottom: 1px solid rgba(0,0,0,.1);
+        box-shadow: inset 0 -6px 10px -6px rgba(0,0,0,.35);
+        background: repeating-linear-gradient(90deg, #f7f2ea 0 26px, #e7ded1 26px 52px);
+      }
+      @media (min-width: 640px) { .awning { height: 24px; } }
+
+      /* ---------- HEADER ---------- */
+      header {
+        position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.95);
+        backdrop-filter: blur(6px); border-bottom: 4px solid var(--sign-red);
+      }
+      .hbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 16px; max-width: 1152px; margin: 0 auto; }
+      .logo-badge {
+        display: grid; place-items: center; height: 40px; width: 40px; border-radius: 6px;
+        background: var(--sign-red); color: #fff; font-family: "Baloo 2"; font-weight: 800; font-style: italic; font-size: 1.05rem;
+        box-shadow: 0 4px 8px rgba(0,0,0,.15);
+      }
+      .brand-name { font-family: "Baloo 2"; font-weight: 800; font-style: italic; color: var(--sign-purple); font-size: 1.25rem; }
+      .brand-sub { font-size: .72rem; font-weight: 700; color: #737373; }
+      .nav { display: none; align-items: center; gap: 4px; }
+      @media (min-width: 768px) { .nav { display: flex; } }
+      .nav a.link { padding: 8px 12px; border-radius: 999px; font-weight: 700; font-size: .9rem; color: #404040; transition: .15s; }
+      .nav a.link:hover { background: var(--cream-dark); color: var(--sign-red); }
+      .status-pill { display: inline-flex; align-items: center; gap: 8px; border-radius: 999px; padding: 6px 12px; font-size: .75rem; font-weight: 800; }
+      .status-open { background: #dcfce7; color: #166534; }
+      .status-closed { background: #f5f5f5; color: #525252; }
+      .dot { height: 8px; width: 8px; border-radius: 999px; }
+      .btn-call { border-radius: 999px; background: var(--sign-red); color: #fff; padding: 8px 16px; font-weight: 800; font-size: .9rem; box-shadow: 0 4px 10px rgba(214,31,19,.3); transition: .15s; }
+      .btn-call:hover { background: var(--sign-red-dark); }
+      .burger { display: inline-block; border: 2px solid var(--sign-red); color: var(--sign-red); border-radius: 6px; padding: 8px 10px; background: none; cursor: pointer; }
+      @media (min-width: 768px) { .burger { display: none; } }
+      .burger span { display: block; height: 2px; width: 20px; background: currentColor; }
+      .burger span + span { margin-top: 4px; }
+      .mobile-menu { display: none; border-top: 1px solid var(--cream-dark); background: #fff; padding: 12px; }
+      .mobile-menu.open { display: block; }
+      .mobile-menu a { display: block; padding: 12px; border-radius: 8px; font-weight: 700; color: #404040; }
+      .mobile-menu a:hover { background: var(--cream); }
+      .mobile-menu .btn-call { display: block; text-align: center; margin-top: 8px; }
+
+      /* ---------- MARQUEE ---------- */
+      .marquee-bar { background: var(--sign-red); color: #fff; padding: 8px 0; border-bottom: 2px solid rgba(157,17,8,.3); overflow: hidden; }
+      .marquee { display: flex; width: max-content; gap: 32px; padding: 0 16px; white-space: nowrap; font-weight: 700; font-style: italic; animation: marquee 30s linear infinite; }
+      .marquee span { display: flex; align-items: center; gap: 32px; font-size: .95rem; }
+      .marquee .sep { color: rgba(255,255,255,.6); }
+      @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+      /* ---------- HERO ---------- */
+      .hero-grid { display: grid; gap: 40px; align-items: center; padding: 48px 0; }
+      @media (min-width: 1024px) { .hero-grid { grid-template-columns: 1fr 1fr; padding: 80px 0; } }
+      .tag { display: inline-flex; align-items: center; gap: 8px; border-radius: 999px; background: rgba(58,42,143,.1); color: var(--sign-purple); padding: 6px 16px; font-size: .9rem; font-weight: 800; }
+      h2.big { font-family: "Baloo 2"; font-weight: 800; font-size: 2.25rem; line-height: 1.1; color: #171717; margin-top: 20px; }
+      @media (min-width: 640px) { h2.big { font-size: 3rem; } }
+      .lead { margin-top: 20px; max-width: 36rem; font-size: 1.125rem; color: #404040; }
+      .cta-row { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px; }
+      .btn-primary { border-radius: 999px; background: var(--sign-red); color: #fff; padding: 12px 24px; font-weight: 800; box-shadow: 0 10px 20px rgba(214,31,19,.3); transition: .15s; }
+      .btn-primary:hover { background: var(--sign-red-dark); }
+      .btn-outline { border-radius: 999px; border: 2px solid var(--sign-purple); color: var(--sign-purple); padding: 10px 24px; font-weight: 800; transition: .15s; }
+      .btn-outline:hover { background: var(--sign-purple); color: #fff; }
+      .hero-info { margin-top: 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px; font-size: .9rem; font-weight: 700; color: #525252; }
+      .hero-imgs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; position: relative; }
+      .hero-imgs img { border-radius: 16px; object-fit: cover; box-shadow: 0 10px 25px rgba(0,0,0,.15); width: 100%; }
+      .hero-imgs .full { grid-column: span 2; height: 240px; }
+      .hero-imgs .half { height: 176px; }
+      .float-badge { position: absolute; bottom: -20px; left: -16px; transform: rotate(-4deg); border-radius: 12px; background: var(--sign-purple); color: #fff; padding: 12px 20px; font-family: "Baloo 2"; font-weight: 800; font-style: italic; font-size: 1.1rem; box-shadow: 0 15px 30px rgba(0,0,0,.25); }
+      @media (max-width: 639px) { .float-badge { display: none; } }
+
+      /* ---------- SECTIONS ---------- */
+      section { scroll-margin-top: 80px; }
+      .eyebrow { font-family: "Baloo 2"; font-size: .8rem; font-weight: 800; text-transform: uppercase; letter-spacing: .15em; color: var(--sign-red); }
+      h2.sec { font-family: "Baloo 2"; font-weight: 800; font-size: 1.9rem; color: #171717; margin-top: 8px; }
+      @media (min-width: 640px) { h2.sec { font-size: 2.25rem; } }
+      .sec-lead { margin-top: 12px; font-size: 1.125rem; color: #525252; }
+
+      .cats { margin-top: 40px; display: grid; gap: 24px; grid-template-columns: 1fr; }
+      @media (min-width: 640px) { .cats { grid-template-columns: 1fr 1fr; } }
+      @media (min-width: 1024px) { .cats { grid-template-columns: 1fr 1fr 1fr; } }
+      .card { overflow: hidden; border-radius: 16px; border: 2px solid var(--cream-dark); background: var(--cream); box-shadow: 0 1px 3px rgba(0,0,0,.06); transition: .2s; }
+      .card:hover { transform: translateY(-4px); border-color: var(--sign-red); box-shadow: 0 20px 30px rgba(0,0,0,.12); }
+      .card .imgbox { position: relative; height: 176px; overflow: hidden; }
+      .card .imgbox img { height: 100%; width: 100%; object-fit: cover; transition: .5s; }
+      .card:hover .imgbox img { transform: scale(1.05); }
+      .card .emoji { position: absolute; top: 12px; left: 12px; display: grid; place-items: center; height: 40px; width: 40px; border-radius: 999px; background: rgba(255,255,255,.9); font-size: 1.25rem; box-shadow: 0 2px 6px rgba(0,0,0,.15); }
+      .card .body { padding: 20px; }
+      .card h3 { font-family: "Baloo 2"; font-weight: 800; font-size: 1.25rem; color: var(--sign-purple); }
+      .card p { margin-top: 8px; font-size: .9rem; color: #404040; }
+      .chips { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 8px; }
+      .chip { border-radius: 999px; background: #fff; padding: 4px 12px; font-size: .72rem; font-weight: 700; color: #525252; box-shadow: inset 0 0 0 1px var(--cream-dark); }
+
+      /* ---------- ABOUT ---------- */
+      .about-grid { display: grid; gap: 40px; align-items: center; }
+      @media (min-width: 1024px) { .about-grid { grid-template-columns: 1fr 1fr; } }
+      .about-img { overflow: hidden; border-radius: 24px; border: 4px solid #fff; box-shadow: 0 20px 40px rgba(0,0,0,.15); }
+      .about-img img { height: 288px; width: 100%; object-fit: cover; }
+      @media (min-width: 640px) { .about-img img { height: 384px; } }
+      .feats { margin-top: 32px; display: grid; gap: 16px; }
+      @media (min-width: 640px) { .feats { grid-template-columns: 1fr 1fr; } }
+      .feat { border-radius: 16px; border: 2px solid var(--cream-dark); background: #fff; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+      .feat .ic { font-size: 1.5rem; }
+      .feat h3 { font-family: "Baloo 2"; font-weight: 800; font-size: 1.05rem; color: var(--sign-purple); margin-top: 8px; }
+      .feat p { margin-top: 4px; font-size: .85rem; color: #525252; }
+
+      /* ---------- HOURS ---------- */
+      .hours-sec { background: var(--sign-purple); color: #fff; }
+      .hours-grid { display: grid; gap: 40px; }
+      @media (min-width: 1024px) { .hours-grid { grid-template-columns: 1fr 1fr; } }
+      .hours-sec .eyebrow { color: var(--sign-red-light); }
+      .status-big { margin-top: 24px; display: inline-flex; align-items: center; gap: 12px; border-radius: 16px; padding: 16px 20px; font-weight: 700; }
+      .status-big.open { background: rgba(34,197,94,.2); color: #bbf7d0; }
+      .status-big.closed { background: rgba(255,255,255,.1); color: rgba(255,255,255,.8); }
+      .status-big .pulse { height: 12px; width: 12px; border-radius: 999px; animation: pulse 1.5s infinite; }
+      @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .4; } }
+      .hours-card { border-radius: 24px; background: rgba(255,255,255,.1); padding: 8px; backdrop-filter: blur(4px); }
+      .hours-list li { display: flex; align-items: center; justify-content: space-between; border-radius: 12px; padding: 16px 20px; font-size: 1.05rem; font-weight: 600; border-bottom: 1px solid rgba(255,255,255,.15); }
+      .hours-list li:last-child { border-bottom: none; }
+      .hours-list li.today { background: #fff; color: var(--sign-purple); font-weight: 800; }
+      .today-tag { border-radius: 999px; background: var(--sign-red); color: #fff; padding: 2px 8px; font-size: .7rem; font-weight: 800; margin-left: 8px; }
+      .closed-txt { opacity: .6; }
+
+      /* ---------- CONTACT ---------- */
+      .contact-grid { margin-top: 40px; display: grid; gap: 32px; }
+      @media (min-width: 1024px) { .contact-grid { grid-template-columns: 1fr 1.3fr; } }
+      .info-card { border-radius: 16px; border: 2px solid var(--cream-dark); background: var(--cream); padding: 24px; margin-bottom: 16px; }
+      .info-card h3 { font-family: "Baloo 2"; font-weight: 800; font-size: 1.25rem; color: var(--sign-purple); }
+      .info-card p { margin-top: 8px; color: #404040; }
+      .info-card .phone { margin-top: 8px; display: block; font-size: 1.5rem; font-weight: 800; color: var(--sign-red); }
+      .info-card ul { margin-top: 8px; }
+      .info-card ul li { margin-top: 6px; color: #404040; }
+      .map-box { overflow: hidden; border-radius: 16px; border: 4px solid var(--cream-dark); box-shadow: 0 10px 25px rgba(0,0,0,.12); }
+      .map-box iframe { width: 100%; height: 420px; border: 0; display: block; }
+      @media (min-width: 1024px) { .map-box iframe { height: 100%; min-height: 560px; } }
+
+      /* ---------- FOOTER ---------- */
+      footer { border-top: 8px solid var(--sign-red); background: #171717; color: #d4d4d4; padding: 48px 0; }
+      .foot-grid { display: grid; gap: 32px; }
+      @media (min-width: 640px) { .foot-grid { grid-template-columns: 1fr 1fr 1fr; } }
+      footer .fname { font-family: "Baloo 2"; font-weight: 800; font-style: italic; font-size: 1.5rem; color: #fff; }
+      footer h3 { font-family: "Baloo 2"; font-weight: 800; font-size: 1.1rem; color: #fff; }
+      footer p, footer li { font-size: .9rem; margin-top: 8px; }
+      footer .fphone { color: var(--sign-red-light); font-weight: 700; }
+      .foot-hours li { display: flex; justify-content: space-between; gap: 16px; margin-top: 4px; }
+      .foot-bottom { max-width: 1152px; margin: 40px auto 0; padding: 24px 16px 0; border-top: 1px solid rgba(255,255,255,.1); font-size: .75rem; color: #737373; }
+
+      .fab { position: fixed; bottom: 16px; right: 16px; z-index: 50; border-radius: 999px; background: var(--sign-red); color: #fff; padding: 12px 20px; font-weight: 800; box-shadow: 0 15px 30px rgba(0,0,0,.3); }
+      @media (min-width: 768px) { .fab { display: none; } }
+      .py-sec { padding: 64px 0; }
+      .maxw { max-width: 42rem; }
+    </style>
+  </head>
+
+  <body>
+    <!-- ===================== SCHILD-BANNER ===================== -->
+    <div id="top">
+      <div class="wall"></div>
+      <div class="sign-outer">
+        <div class="sign-frame">
+          <div class="sign-plate">
+            <div class="sign-row">
+              <div class="sign-side left">
+                <div>- Haushaltswaren,</div>
+                <div>- Schreibwaren</div>
+              </div>
+              <h1 class="sign-word">Spar Welt</h1>
+              <div class="sign-side right">
+                <div>- Textilien,</div>
+                <div>- Lederwaren…</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="awning"></div>
+    </div>
+
+    <!-- ===================== HEADER ===================== -->
+    <header>
+      <div class="hbar">
+        <a href="#top" style="display:flex;align-items:center;gap:12px">
+          <span class="logo-badge">SW</span>
+          <span style="line-height:1.1">
+            <span class="brand-name" style="display:block">Spar Welt</span>
+            <span class="brand-sub" style="display:block">Berlin Köpenick</span>
+          </span>
+        </a>
+        <nav class="nav">
+          <a class="link" href="#sortiment">Sortiment</a>
+          <a class="link" href="#ueber-uns">Über uns</a>
+          <a class="link" href="#oeffnungszeiten">Öffnungszeiten</a>
+          <a class="link" href="#kontakt">Kontakt</a>
+          <span id="headerStatus" class="status-pill status-closed" style="margin-left:8px">
+            <span class="dot" style="background:#a3a3a3"></span><span class="txt">Geschlossen</span>
+          </span>
+          <a class="btn-call" style="margin-left:8px" href="tel:+491707343603">☎ Anrufen</a>
+        </nav>
+        <button class="burger" id="burger" aria-label="Menü">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#sortiment">Sortiment</a>
+        <a href="#ueber-uns">Über uns</a>
+        <a href="#oeffnungszeiten">Öffnungszeiten</a>
+        <a href="#kontakt">Kontakt</a>
+        <a class="btn-call" href="tel:+491707343603">☎ +49 170 7343603</a>
+      </div>
+    </header>
+
+    <!-- ===================== MARQUEE + HERO ===================== -->
+    <section>
+      <div class="marquee-bar">
+        <div class="marquee" id="marquee"></div>
+      </div>
+
+      <div class="wrap hero-grid">
+        <div>
+          <span class="tag">🏬 Ihr Nachbarschaftsladen in Köpenick</span>
+          <h2 class="big">Alles für den Alltag – <span style="color:var(--sign-red)">unter einem Dach</span></h2>
+          <p class="lead">
+            Haushaltswaren, Schreibwaren, Textilien, Lederwaren und tausend Kleinigkeiten,
+            die man gerade dann braucht, wenn man sie sucht. Seit Jahren direkt in der
+            <strong>Bahnhofstraße 7</strong> in Berlin-Köpenick – persönlich beraten, fair im Preis.
+          </p>
+          <div class="cta-row">
+            <a class="btn-primary" href="#sortiment">Sortiment entdecken</a>
+            <a class="btn-outline" target="_blank" rel="noreferrer"
+               href="https://www.google.com/maps/search/?api=1&query=Spar+Welt+Bahnhofstra%C3%9Fe+7+12555+Berlin">📍 Route planen</a>
+          </div>
+          <div class="hero-info">
+            <span id="heroStatus" class="status-pill status-closed">
+              <span class="dot" style="background:#737373"></span><span class="txt">Geschlossen</span>
+            </span>
+            <a href="tel:+491707343603">☎ +49 170 7343603</a>
+          </div>
+        </div>
+
+        <div class="hero-imgs">
+          <img class="full" loading="lazy" alt="Haushaltswaren im Laden"
+            src="./assets/images/reinigung.jpg" />
+          <img class="half" loading="lazy" alt="Schreibwaren"
+            src="./assets/images/schreibwaren.jpg" />
+          <img class="half" loading="lazy" alt="Taschen und Lederwaren"
+            src="./assets/images/lederwaren.jpg" />
+          <div class="float-badge">Kleine Preise, große Auswahl</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SORTIMENT ===================== -->
+    <section id="sortiment" style="background:#fff" class="py-sec">
+      <div class="wrap">
+        <div class="maxw">
+          <span class="eyebrow">Unser Sortiment</span>
+          <h2 class="sec">Von der Bratpfanne bis zum Schulranzen</h2>
+          <p class="sec-lead">Über 10.000 Artikel auf einer Verkaufsfläche – und wenn etwas fehlt, besorgen wir es gern.</p>
+        </div>
+        <div class="cats" id="cats"></div>
+      </div>
+    </section>
+
+    <!-- ===================== ÜBER UNS ===================== -->
+    <section id="ueber-uns" class="py-sec">
+      <div class="wrap about-grid">
+        <div class="about-img">
+          <img loading="lazy" alt="Ladenfront mit Waren vor dem Geschäft"
+            src="./assets/images/ladenfront.jpg" />
+        </div>
+        <div>
+          <span class="eyebrow">Über uns</span>
+          <h2 class="sec">Der Laden, in dem man noch alles findet</h2>
+          <p class="sec-lead">
+            Die <strong>Spar Welt</strong> ist ein klassischer Gemischtwarenladen mitten in
+            Berlin-Köpenick. Wo andere nur eine Sache verkaufen, bekommen Sie bei uns den
+            Kochtopf, den Regenschirm, die Schulhefte und die neue Einkaufstasche in einem Einkauf.
+          </p>
+          <p class="sec-lead">
+            Schauen Sie einfach vorbei – die Auslage vor dem Geschäft ist nur der Anfang.
+            Drinnen wartet ein Sortiment, das jede Woche wächst.
+          </p>
+          <div class="feats">
+            <div class="feat"><div class="ic">🤝</div><h3>Persönliche Beratung</h3><p>Wir nehmen uns Zeit, hören zu und finden gemeinsam das passende Teil – auch für Spezialfälle.</p></div>
+            <div class="feat"><div class="ic">💶</div><h3>Faire Preise</h3><p>Gute Qualität muss nicht teuer sein. Viele Artikel gibt es schon ab wenigen Cent.</p></div>
+            <div class="feat"><div class="ic">🚋</div><h3>Zentral in Köpenick</h3><p>Direkt in der Bahnhofstraße, wenige Schritte vom S-Bahnhof Köpenick und der Tramhaltestelle.</p></div>
+            <div class="feat"><div class="ic">🧾</div><h3>Nachbarschaft seit Jahren</h3><p>Ein inhabergeführter Laden – keine Kette, sondern Menschen aus dem Kiez für den Kiez.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ÖFFNUNGSZEITEN ===================== -->
+    <section id="oeffnungszeiten" class="hours-sec py-sec">
+      <div class="wrap hours-grid">
+        <div>
+          <span class="eyebrow">Öffnungszeiten</span>
+          <h2 class="sec" style="color:#fff">Wann Sie uns besuchen können</h2>
+          <p class="sec-lead" style="color:rgba(255,255,255,.8);max-width:28rem">
+            Sechs Tage die Woche für Sie da. An Feiertagen kann es Abweichungen geben – rufen Sie im Zweifel kurz an.
+          </p>
+          <div id="statusBig" class="status-big closed">
+            <span class="pulse" style="background:#f87171"></span>
+            <span>
+              <span class="label" style="display:block;font-size:1.1rem">Geschlossen</span>
+              <span class="detail" style="display:block;font-size:.85rem;opacity:.8"></span>
+            </span>
+          </div>
+          <div style="margin-top:24px">
+            <a class="btn-primary" href="tel:+491707343603">☎ +49 170 7343603</a>
+          </div>
+        </div>
+        <div class="hours-card">
+          <ul class="hours-list" id="hoursList"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== KONTAKT ===================== -->
+    <section id="kontakt" style="background:#fff" class="py-sec">
+      <div class="wrap">
+        <div class="maxw">
+          <span class="eyebrow">Kontakt & Anfahrt</span>
+          <h2 class="sec">So finden Sie uns</h2>
+        </div>
+        <div class="contact-grid">
+          <div>
+            <div class="info-card">
+              <h3>Adresse</h3>
+              <p>Spar Welt<br />Bahnhofstraße 7<br />12555 Berlin-Köpenick</p>
+              <a class="btn-outline" style="margin-top:16px;display:inline-block;border-color:var(--sign-purple)" target="_blank" rel="noreferrer"
+                 href="https://www.google.com/maps/search/?api=1&query=Spar+Welt+Bahnhofstra%C3%9Fe+7+12555+Berlin">📍 In Karten öffnen</a>
+            </div>
+            <div class="info-card">
+              <h3>Telefon</h3>
+              <a class="phone" href="tel:+491707343603">+49 170 7343603</a>
+              <p>Fragen zur Verfügbarkeit? Ein kurzer Anruf genügt – wir schauen sofort nach.</p>
+            </div>
+            <div class="info-card">
+              <h3>Anfahrt</h3>
+              <ul>
+                <li>🚈 S-Bahnhof Köpenick – wenige Gehminuten</li>
+                <li>🚋 Tram & Bus Bahnhofstraße / Elcknerplatz</li>
+                <li>🚗 Parkmöglichkeiten in den Seitenstraßen</li>
+              </ul>
+            </div>
+          </div>
+          <div class="map-box" style="position:relative;background:var(--cream-dark)">
+            <!-- Offline-Hinweis liegt hinter der Karte; ist Internet vorhanden, überdeckt die Karte ihn -->
+            <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;color:#6b5b4d">
+              <div style="font-size:2rem">🗺️</div>
+              <p style="margin-top:8px;font-weight:800;color:var(--sign-purple)">Bahnhofstraße 7, 12555 Berlin-Köpenick</p>
+              <a class="btn-outline" style="margin-top:12px;display:inline-block;border-color:var(--sign-purple)" target="_blank" rel="noreferrer"
+                 href="https://www.google.com/maps/search/?api=1&query=Spar+Welt+Bahnhofstra%C3%9Fe+7+12555+Berlin">📍 Karte öffnen</a>
+            </div>
+            <iframe title="Karte Spar Welt Bahnhofstraße 7 Berlin Köpenick" loading="lazy" style="position:relative"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=13.5700%2C52.4520%2C13.5830%2C52.4590&layer=mapnik&marker=52.4555%2C13.5765"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer>
+      <div class="wrap foot-grid">
+        <div>
+          <span class="fname">Spar Welt</span>
+          <p>Haushaltswaren · Schreibwaren · Textilien · Lederwaren und vieles mehr – Ihr Gemischtwarenladen in Berlin-Köpenick.</p>
+        </div>
+        <div>
+          <h3>Kontakt</h3>
+          <p>Bahnhofstraße 7<br />12555 Berlin-Köpenick</p>
+          <a class="fphone" href="tel:+491707343603">+49 170 7343603</a>
+        </div>
+        <div>
+          <h3>Öffnungszeiten</h3>
+          <ul class="foot-hours">
+            <li><span>Mo – Fr</span><span>09:00 – 18:00 Uhr</span></li>
+            <li><span>Samstag</span><span>09:00 – 15:00 Uhr</span></li>
+            <li style="opacity:.7"><span>Sonntag</span><span>geschlossen</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="wrap" style="margin-top:16px;display:flex;gap:20px;flex-wrap:wrap;font-weight:700"><a href="./impressum.html" style="text-decoration:underline">Impressum</a><a href="./datenschutz.html" style="text-decoration:underline">Datenschutz</a></div>
+      <div class="foot-bottom" id="footBottom"></div>
+    </footer>
+
+    <a class="fab" href="tel:+491707343603">☎ Anrufen</a>
+
+    <!-- ===================== SCRIPT ===================== -->
+    <script>
+      // ----- Daten -----
+      var marqueeItems = ["Haushaltswaren","Schreibwaren","Textilien","Lederwaren","Kurzwaren","Spielzeug","Geschenkartikel","Reinigungsbedarf"];
+      var categories = [
+        { title:"Haushaltswaren", emoji:"🍳", img:"./assets/images/haushaltswaren.jpg", text:"Vom Topf über Gläser bis zur Gardinenstange – alles, was der Haushalt täglich braucht.", items:["Töpfe & Pfannen","Geschirr & Gläser","Küchenhelfer","Aufbewahrung"] },
+        { title:"Schreibwaren", emoji:"✏️", img:"./assets/images/schreibwaren.jpg", text:"Schulbedarf, Bürobedarf, Grußkarten und Geschenkpapier – auch kurz vor Schulbeginn.", items:["Hefte & Blöcke","Stifte & Farben","Grußkarten","Bastelbedarf"] },
+        { title:"Textilien", emoji:"👕", img:"./assets/images/textilien.jpg", text:"Wäsche, Socken, Mützen, Hüte und Stoffe – für die ganze Familie, zu fairen Preisen.", items:["Unterwäsche & Socken","Hüte & Mützen","Stoffe & Meterware","Heimtextilien"] },
+        { title:"Lederwaren", emoji:"👜", img:"./assets/images/lederwaren.jpg", text:"Taschen, Rucksäcke, Einkaufstrolleys, Geldbörsen und Gürtel – robust und praktisch.", items:["Handtaschen","Schul- & Rucksäcke","Einkaufstrolleys","Geldbörsen & Gürtel"] },
+        { title:"Reinigung & Ordnung", emoji:"🧺", img:"./assets/images/reinigung.jpg", text:"Besen, Wannen, Wäscheständer, Eimer und Putzmittel für den großen Frühjahrsputz.", items:["Besen & Wischmopps","Wäscheständer","Körbe & Wannen","Putzmittel"] },
+        { title:"… und mehr", emoji:"🎈", img:"./assets/images/mehr.jpg", text:"Regenschirme, Spielzeug, Deko, Luftballons, Kleinelektro und saisonale Angebote.", items:["Regenschirme","Spielzeug & Deko","Batterien & Kleinteile","Saisonartikel"] }
+      ];
+      // index 0 = Sonntag
+      var hours = [
+        { day:"Sonntag", from:"", to:"", closed:true },
+        { day:"Montag", from:"09:00", to:"18:00" },
+        { day:"Dienstag", from:"09:00", to:"18:00" },
+        { day:"Mittwoch", from:"09:00", to:"18:00" },
+        { day:"Donnerstag", from:"09:00", to:"18:00" },
+        { day:"Freitag", from:"09:00", to:"18:00" },
+        { day:"Samstag", from:"09:00", to:"15:00" }
+      ];
+
+      function esc(s){ var d=document.createElement("div"); d.textContent=s; return d.innerHTML; }
+      function toMin(t){ var p=t.split(":"); return (+p[0])*60 + (+p[1]); }
+
+      // ----- Marquee -----
+      (function(){
+        var html = "";
+        var doubled = marqueeItems.concat(marqueeItems);
+        for (var i=0;i<doubled.length;i++){ html += '<span>'+esc(doubled[i])+'<span class="sep">✦</span></span>'; }
+        document.getElementById("marquee").innerHTML = html;
+      })();
+
+      // ----- Sortiment -----
+      (function(){
+        var html = "";
+        for (var i=0;i<categories.length;i++){
+          var c = categories[i];
+          var chips = "";
+          for (var j=0;j<c.items.length;j++){ chips += '<li class="chip">'+esc(c.items[j])+'</li>'; }
+          html +=
+            '<article class="card">' +
+              '<div class="imgbox"><img loading="lazy" alt="'+esc(c.title)+'" src="'+c.img+'"><span class="emoji">'+c.emoji+'</span></div>' +
+              '<div class="body"><h3>'+esc(c.title)+'</h3><p>'+esc(c.text)+'</p><ul class="chips">'+chips+'</ul></div>' +
+            '</article>';
+        }
+        document.getElementById("cats").innerHTML = html;
+      })();
+
+      // ----- Öffnungsstatus -----
+      function computeStatus(now){
+        var ti = now.getDay();
+        var today = hours[ti];
+        var mins = now.getHours()*60 + now.getMinutes();
+        function nextOpen(){
+          for (var i=1;i<=7;i++){ var d=hours[(ti+i)%7]; if(!d.closed) return d.day+" ab "+d.from+" Uhr"; }
+          return "";
+        }
+        if (!today.closed){
+          var f=toMin(today.from), t=toMin(today.to);
+          if (mins>=f && mins<t){
+            var left=t-mins;
+            return { open:true, todayIndex:ti, label:"Jetzt geöffnet", detail: left<=60 ? ("Schließt in "+left+" Min. ("+today.to+" Uhr)") : ("Heute bis "+today.to+" Uhr geöffnet") };
+          }
+          if (mins<f){ return { open:false, todayIndex:ti, label:"Geschlossen", detail:"Öffnet heute um "+today.from+" Uhr" }; }
+        }
+        return { open:false, todayIndex:ti, label:"Geschlossen", detail:"Wieder geöffnet: "+nextOpen() };
+      }
+
+      function renderHours(st){
+        var order=[1,2,3,4,5,6,0], html="";
+        for (var k=0;k<order.length;k++){
+          var idx=order[k], h=hours[idx], isToday=idx===st.todayIndex;
+          var right = h.closed ? '<span class="closed-txt">geschlossen</span>' : (h.from+' – '+h.to+' Uhr');
+          html += '<li class="'+(isToday?'today':'')+'"><span>'+h.day+(isToday?'<span class="today-tag">heute</span>':'')+'</span><span>'+right+'</span></li>';
+        }
+        document.getElementById("hoursList").innerHTML = html;
+      }
+
+      function setPill(el, st){
+        el.className = "status-pill " + (st.open ? "status-open" : "status-closed");
+        el.querySelector(".dot").style.background = st.open ? "#22c55e" : "#a3a3a3";
+        el.querySelector(".txt").textContent = st.open ? (st.label + " · " + st.detail) : (st.label + " · " + st.detail);
+      }
+
+      function update(){
+        var st = computeStatus(new Date());
+        // header (kurz)
+        var hs = document.getElementById("headerStatus");
+        hs.className = "status-pill " + (st.open ? "status-open" : "status-closed");
+        hs.querySelector(".dot").style.background = st.open ? "#22c55e" : "#a3a3a3";
+        hs.querySelector(".txt").textContent = st.label;
+        // hero (mit Detail)
+        setPill(document.getElementById("heroStatus"), st);
+        // big
+        var sb = document.getElementById("statusBig");
+        sb.className = "status-big " + (st.open ? "open" : "closed");
+        sb.querySelector(".pulse").style.background = st.open ? "#4ade80" : "#f87171";
+        sb.querySelector(".label").textContent = st.label;
+        sb.querySelector(".detail").textContent = st.detail;
+        renderHours(st);
+      }
+      update();
+      setInterval(update, 30000);
+
+      // ----- Footer Jahr -----
+      document.getElementById("footBottom").textContent =
+        "© " + new Date().getFullYear() + " Spar Welt, Bahnhofstraße 7, 12555 Berlin. Alle Angaben ohne Gewähr.";
+
+      // ----- Mobile Menü -----
+      var burger = document.getElementById("burger");
+      var menu = document.getElementById("mobileMenu");
+      burger.addEventListener("click", function(){ menu.classList.toggle("open"); });
+      var links = menu.querySelectorAll("a");
+      for (var i=0;i<links.length;i++){ links[i].addEventListener("click", function(){ menu.classList.remove("open"); }); }
+    </script>
+  </body>
+</html>
